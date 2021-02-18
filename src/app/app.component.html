@@ -1,6 +1,6 @@
 <mat-toolbar color="primary">
   <button mat-icon-button>
-    <mat-icon>menu</mat-icon>
+    <mat-icon (click)="sideNav.toggle()">menu</mat-icon>
   </button>
   <span>My App</span>
   <span class="example-spacer"></span>
@@ -12,11 +12,13 @@
   </button>
 </mat-toolbar>
 <mat-sidenav-container class="main-container">
-  <mat-sidenav opened
+  <mat-sidenav #sideNav
+               opened
                mode="side"
                class="side-nav">
-    <div class="side-nav-item">Start</div>
-    <div class="side-nav-item">Testing</div>
+    <mat-nav-list>
+      <mat-list-item class="mat-list-item">Start</mat-list-item>
+    </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
     <router-outlet></router-outlet>
