@@ -4,8 +4,8 @@
                opened
                mode="side"
                class="side-nav">
-    <mat-nav-list>
-      <mat-list-item (click)="navigateToHome()">Home</mat-list-item>
+    <mat-nav-list *ngFor="let navItem of navItems">
+      <mat-list-item (click)="navigate(navItem.value)">{{ navItem.key }}</mat-list-item>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content class="main-content">

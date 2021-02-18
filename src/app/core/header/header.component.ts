@@ -22,4 +22,8 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['/settings']);
   }
 
+  navigateToLinkedIn() {
+    window.open("https://www.linkedin.com/in/emilykennedy568", "_blank");
+  }
+
 }

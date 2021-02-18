@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { GenericKeyValue } from './shared/interfaces/generic-key-value.interface';
 
 @Component({
   selector: 'app-root',
@@ -8,10 +9,20 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
   title = 'EmilyK568';
+  navItems: Array<GenericKeyValue> = [
+    {
+      key: 'Home',
+      value: '/home'
+    },
+    {
+      key: 'Example',
+      value: '/example'
+    }
+  ]
 
   constructor(private readonly router: Router) {}
 
-  navigateToHome() {
-    this.router.navigate(['/home']);
+  navigate(path: string) {
+    this.router.navigate([path]);
   }
 }
