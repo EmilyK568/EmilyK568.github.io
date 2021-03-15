@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormControl, Validators } from '@angular/forms';
+import { MatChipInputEvent } from '@angular/material/chips';
 
 
 @Component({
@@ -11,6 +12,7 @@ export class GuestComponent implements OnInit {
   @Input() guestForm: any;
   @Input() index: number = 0;
   @Output() remove = new EventEmitter();
+  friends: Array<string> = [];
 
   constructor() { }
 
@@ -20,13 +22,29 @@ export class GuestComponent implements OnInit {
 
   setFormControls() {
     if (this.guestForm) {
-      this.guestForm.addControl('name', new FormControl(null));
-      this.guestForm.addControl('age', new FormControl(null));
-      this.guestForm.addControl('weight', new FormControl(null));
+      this.guestForm.addControl('name', new FormControl(null, {validators: Validators.required}));
+      this.guestForm.addControl('age', new FormControl(null, {validators: Validators.required}));
+      this.guestForm.addControl('weight', new FormControl(null, {validators: Validators.required}));
+      this.guestForm.addControl('friends', new FormControl([]));
     }
   }
 
   removeMe() {
     this.remove.emit(this.index);
+  }
+
+  removeFriend(index: number) {
+    this.friends.splice(index, 1);
+  }
+
+  addFriend(event: MatChipInputEvent) {
+    const value = event.value;
+    const input = event.input;
+
+    this.friends.push(value.trim());
+    this.guestForm.get('friends').setValue(this.friends);
+    if (input) {
+      input.value = '';
+    }
   }
 }

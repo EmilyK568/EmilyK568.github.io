@@ -29,4 +29,8 @@ export class AddGuestComponent implements OnInit {
     this.guests.removeAt(index);
   }
 
+  submit() {
+    this.guestList.markAllAsTouched();
+  }
+
 }

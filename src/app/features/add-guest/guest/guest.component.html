@@ -1,16 +1,46 @@
 <form [formGroup]="guestForm">
   <div class="form-fields">
+    <p>Fields marks with * are mandatory</p>
     <mat-form-field>
-      <mat-label>Name</mat-label>
+      <mat-label>* Name</mat-label>
       <input matInput formControlName="name">
+      <mat-error *ngIf="guestForm.controls.name.touched && guestForm.controls.name.invalid">
+        <span *ngIf="guestForm.controls.name.errors.required">This field is mandatory.</span>
+      </mat-error>
     </mat-form-field>
     <mat-form-field>
-      <mat-label>Age</mat-label>
-      <input matInput formControlName="age">
+      <mat-label>* Age</mat-label>
+      <input matInput
+             formControlName="age"
+             type="number">
+      <mat-error *ngIf="guestForm.controls.age.touched && guestForm.controls.age.invalid">
+        <span *ngIf="guestForm.controls.age.errors.required">This field is mandatory.</span>
+      </mat-error>
     </mat-form-field>
     <mat-form-field>
-      <mat-label>Weight (in lbs)</mat-label>
-      <input matInput formControlName="weight">
+      <mat-label>* Weight (in lbs)</mat-label>
+      <input matInput
+             formControlName="weight"
+             type="number">
+      <mat-error *ngIf="guestForm.controls.weight.touched && guestForm.controls.weight.invalid">
+        <span *ngIf="guestForm.controls.weight.errors.required">This field is mandatory.</span>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="example-chip-list">
+      <mat-label>Friends</mat-label>
+      <mat-chip-list #chipList matTooltip="Used for table seating">
+        <mat-chip *ngFor="let friend of friends; let i=index"
+                  [selectable]="true"
+                  [removable]="true"
+                  (removed)="removeFriend(i)">
+          {{ friend }}
+          <mat-icon matChipRemove>cancel</mat-icon>
+        </mat-chip>
+        <input placeholder="New friend..."
+               [matChipInputFor]="chipList"
+               [matChipInputAddOnBlur]="true"
+               (matChipInputTokenEnd)="addFriend($event)">
+      </mat-chip-list>
     </mat-form-field>
   </div>
   <div class="spacer"></div>
