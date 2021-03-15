@@ -21,6 +21,8 @@ export class GuestComponent implements OnInit {
   setFormControls() {
     if (this.guestForm) {
       this.guestForm.addControl('name', new FormControl(null));
+      this.guestForm.addControl('age', new FormControl(null));
+      this.guestForm.addControl('weight', new FormControl(null));
     }
   }
 

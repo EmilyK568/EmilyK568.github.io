@@ -1,12 +1,27 @@
 <form [formGroup]="guestForm">
-  <mat-form-field>
-    <mat-label>Name</mat-label>
-    <input matInput formControlName="name">
-  </mat-form-field>
+  <div class="form-fields">
+    <mat-form-field>
+      <mat-label>Name</mat-label>
+      <input matInput formControlName="name">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Age</mat-label>
+      <input matInput formControlName="age">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Weight (in lbs)</mat-label>
+      <input matInput formControlName="weight">
+    </mat-form-field>
+  </div>
+  <div class="spacer"></div>
+</form>
+<div class="button">
   <button mat-button
           color="warn"
           class="add-button"
           (click)="removeMe()">
     <mat-icon>remove_circle_outline</mat-icon>Remove
-</button>
-</form>
+  </button>
+  <div class="spacer"></div>
+</div>
+
