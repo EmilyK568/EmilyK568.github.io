@@ -1,4 +1,4 @@
 export interface GenericKeyValue {
-  key: string,
-  value: string | number | boolean
+  key: string;
+  value: string | number | boolean;
 }
