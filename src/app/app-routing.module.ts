@@ -7,6 +7,10 @@ const routes: Routes = [
     loadChildren: () => import('src/app/features/home/home.module').then(m => m.HomeModule)
   },
   {
+    path: 'add-guest',
+    loadChildren: () => import('src/app/features/add-guest/add-guest.module').then(m => m.AddGuestModule)
+  },
+  {
     path: 'settings',
     loadChildren: () => import('src/app/features/settings/settings.module').then(m => m.SettingsModule)
   },
