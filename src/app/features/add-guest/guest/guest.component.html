@@ -1,0 +1,12 @@
+<form [formGroup]="guestForm">
+  <mat-form-field>
+    <mat-label>Name</mat-label>
+    <input matInput formControlName="name">
+  </mat-form-field>
+  <button mat-button
+          color="warn"
+          class="add-button"
+          (click)="removeMe()">
+    <mat-icon>remove_circle_outline</mat-icon>Remove
+</button>
+</form>

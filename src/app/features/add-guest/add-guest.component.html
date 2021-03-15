@@ -1,1 +1,20 @@
-<p>add-guest works!</p>
+<h2>Add New People to Guest List</h2>
+<form [formGroup]="guestList">
+  <div formArrayName="guests">
+    <mat-card *ngFor="let guest of guests.controls; let i=index">
+      <app-guest [index]="i"
+                 [guestForm]="guest"
+                 (remove)="removeGuest($event)"></app-guest>
+    </mat-card>
+    <div class="buttons">
+      <button mat-button
+              color="accent"
+              class="add-button"
+              (click)="addGuest()">
+        <mat-icon>add</mat-icon>Add Another Guest
+      </button>
+      <div class="spacer"></div>
+      <button mat-raised-button color="primary" class="submit">Submit</button>
+    </div>
+  </div>
+</form>

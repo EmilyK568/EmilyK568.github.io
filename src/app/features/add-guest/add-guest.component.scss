@@ -1,0 +1,15 @@
+.add-button {
+  padding-left: 0.5rem;
+}
+
+mat-card {
+  margin-bottom: 1rem;
+}
+
+.buttons {
+  display: flex;
+
+  .spacer {
+    flex: 1;
+  }
+}
