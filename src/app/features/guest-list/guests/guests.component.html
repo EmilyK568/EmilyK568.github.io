@@ -1,0 +1,27 @@
+<mat-card>
+  <table matSort (matSortChange)="sortData($event)">
+    <tr>
+      <th mat-sort-header="name">Name</th>
+      <th mat-sort-header="calories">Age (in years)</th>
+      <th mat-sort-header="fat">Weight (in lbs)</th>
+      <th class="hidden">
+        <button mat-button
+              color="warn">
+          <mat-icon>remove</mat-icon>Remove Guest from List
+        </button>
+      </th>
+    </tr>
+    <tr *ngFor="let guest of sortedData; let i=index">
+      <td>{{ guest.name }}</td>
+      <td>{{ guest.age }}</td>
+      <td>{{ guest.weight }}</td>
+      <td>
+        <button mat-button
+                color="warn"
+                (click)="removeGuest(i)">
+          <mat-icon>remove</mat-icon>Remove Guest from List
+        </button>
+      </td>
+    </tr>
+  </table>  
+</mat-card>

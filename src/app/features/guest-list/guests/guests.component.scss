@@ -1,0 +1,21 @@
+mat-card {
+  margin-bottom: 1rem;
+
+  table {
+    display: flex;
+    flex-direction: column;
+
+    tr {
+      display: flex;
+
+      th, td {
+        flex: 1;
+      }
+
+      .hidden {
+        opacity: 0;
+        pointer-events: none;
+      }
+    }
+  }
+}
