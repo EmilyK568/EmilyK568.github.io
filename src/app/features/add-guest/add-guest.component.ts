@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder } from '@angular/forms';
+import { Store } from '@ngrx/store';
+import { addGuests } from 'src/app/state/guest-list.actions';
 
 @Component({
   selector: 'app-add-guest',
@@ -11,7 +13,8 @@ export class AddGuestComponent implements OnInit {
     guests: this.fb.array([])
   });
 
-  constructor(private readonly fb: FormBuilder) { }
+  constructor(private readonly fb: FormBuilder,
+              private readonly store: Store) { }
   
   get guests() {
     return this.guestList.get('guests') as FormArray;
@@ -31,6 +34,10 @@ export class AddGuestComponent implements OnInit {
 
   submit() {
     this.guestList.markAllAsTouched();
+    const value = this.guestList.getRawValue()
+    if (this.guestList.valid) {
+      this.store.dispatch(addGuests({ guests: value.guests }));
+    }
   }
 
 }

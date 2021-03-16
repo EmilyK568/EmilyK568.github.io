@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { configureTestSuite } from 'ng-bullet';
 
-import { GuestListComponent } from './guest-list.component';
+import { AgeRangeComponent } from './age-range.component';
 
-describe('GuestListComponent', () => {
-  let component: GuestListComponent;
-  let fixture: ComponentFixture<GuestListComponent>;
+describe('AgeRangeComponent', () => {
+  let component: AgeRangeComponent;
+  let fixture: ComponentFixture<AgeRangeComponent>;
 
   configureTestSuite(() => {
     TestBed.configureTestingModule({
-      declarations: [ GuestListComponent ]
+      declarations: [ AgeRangeComponent ]
     });
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(GuestListComponent);
+    fixture = TestBed.createComponent(AgeRangeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
