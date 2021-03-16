@@ -1,3 +1,4 @@
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { configureTestSuite } from 'ng-bullet';
@@ -14,7 +15,8 @@ describe('AppComponent', () => {
       ],
       declarations: [
         AppComponent
-      ]
+      ],
+      schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
     });
   });
 
@@ -26,6 +28,13 @@ describe('AppComponent', () => {
 
   it('should create the app', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should navigate', () => {
+    const emitSpy = spyOn(component['router'], 'navigate').and.returnValue(Promise.resolve());
+    component.navigate('/testing');
+    expect(emitSpy).toHaveBeenCalledTimes(1);
+    expect(emitSpy).toHaveBeenCalledWith(['/testing']);
   });
 
 });
