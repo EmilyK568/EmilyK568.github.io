@@ -1,4 +1,4 @@
-export interface Friend {
+export interface Guest {
   name: string;
   friends: Array<string>;
   age: number;
