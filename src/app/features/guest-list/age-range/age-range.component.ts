@@ -19,7 +19,6 @@ export class AgeRangeComponent implements OnInit {
   private createChart(): void {
     const data = this.guests ? this.guests : [];
     const svg = d3.select('svg');
-    const svgContainer = d3.select('#chart');
     const margin = 80;
     const width = 1200 - 2 * margin;
     const height = 500 - 2 * margin;
