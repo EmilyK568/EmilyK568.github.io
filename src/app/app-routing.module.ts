@@ -7,6 +7,10 @@ const routes: Routes = [
     loadChildren: () => import('src/app/features/home/home.module').then(m => m.HomeModule)
   },
   {
+    path: 'guest-list',
+    loadChildren: () => import('src/app/features/guest-list/guest-list.module').then(m => m.GuestListModule)
+  },
+  {
     path: 'add-guest',
     loadChildren: () => import('src/app/features/add-guest/add-guest.module').then(m => m.AddGuestModule)
   },

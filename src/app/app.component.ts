@@ -15,6 +15,10 @@ export class AppComponent {
       value: '/home'
     },
     {
+      key: 'Guest List',
+      value: '/guest-list'
+    },
+    {
       key: 'Add a Guest',
       value: '/add-guest'
     }
