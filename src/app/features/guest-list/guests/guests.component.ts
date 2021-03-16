@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Sort } from '@angular/material/sort';
 import { Store } from '@ngrx/store';
 import { Guest } from 'src/app/shared/interfaces/guest.interface';
+import { removeGuest } from 'src/app/state/guest-list.actions';
 
 @Component({
   selector: 'app-guests',
@@ -15,12 +16,12 @@ export class GuestsComponent implements OnInit {
   constructor(private readonly store: Store) { }
 
   ngOnInit(): void {
-    this.sortedData = this.guests ? this.guests : [];
+    this.sortedData = this.guests ? [...this.guests] : [];
   }
 
   removeGuest(index: number) {
     this.sortedData.splice(index, 1);
-    // add dispatch to store
+    this.store.dispatch(removeGuest({ guests: this.sortedData}));
   }
 
   sortData(sort: Sort) {

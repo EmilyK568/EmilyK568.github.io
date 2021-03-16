@@ -11,17 +11,24 @@
         </button>
       </th>
     </tr>
-    <tr *ngFor="let guest of sortedData; let i=index">
-      <td>{{ guest.name }}</td>
-      <td>{{ guest.age }}</td>
-      <td>{{ guest.weight }}</td>
-      <td>
-        <button mat-button
-                color="warn"
-                (click)="removeGuest(i)">
-          <mat-icon>remove</mat-icon>Remove Guest from List
-        </button>
-      </td>
-    </tr>
+    <ng-container *ngIf="sortedData.length > 0; else noData">
+      <tr *ngFor="let guest of sortedData; let i=index">
+        <td>{{ guest.name }}</td>
+        <td>{{ guest.age }}</td>
+        <td>{{ guest.weight }}</td>
+        <td>
+          <button mat-button
+                  color="warn"
+                  (click)="removeGuest(i)">
+            <mat-icon>remove</mat-icon>Remove Guest from List
+          </button>
+        </td>
+      </tr>
+    </ng-container>
+    <ng-template #noData>
+      <tr>
+        <td>No data available</td>
+      </tr>
+    </ng-template>
   </table>  
 </mat-card>
