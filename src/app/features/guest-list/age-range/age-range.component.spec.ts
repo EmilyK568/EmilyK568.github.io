@@ -1,3 +1,4 @@
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { configureTestSuite } from 'ng-bullet';
 
@@ -9,7 +10,8 @@ describe('AgeRangeComponent', () => {
 
   configureTestSuite(() => {
     TestBed.configureTestingModule({
-      declarations: [ AgeRangeComponent ]
+      declarations: [ AgeRangeComponent ],
+      schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
     });
   });
 

@@ -2,6 +2,7 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { MatChipsModule } from '@angular/material/chips';
+import { provideMockStore, MockStore } from '@ngrx/store/testing';
 import { configureTestSuite } from 'ng-bullet';
 
 import { GuestComponent } from './guest.component';
@@ -9,6 +10,7 @@ import { GuestComponent } from './guest.component';
 describe('GuestComponent', () => {
   let component: GuestComponent;
   let fixture: ComponentFixture<GuestComponent>;
+  let store: MockStore;
 
   configureTestSuite(() => {
     TestBed.configureTestingModule({
@@ -17,8 +19,12 @@ describe('GuestComponent', () => {
         ReactiveFormsModule,
         MatChipsModule
       ],
+      providers: [
+        provideMockStore({})
+      ],
       schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
     });
+    store = TestBed.inject(MockStore);
   });
 
   beforeEach(() => {

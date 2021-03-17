@@ -1,16 +1,24 @@
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { provideMockStore, MockStore } from '@ngrx/store/testing';
+import { configureTestSuite } from 'ng-bullet';
 
 import { GuestsComponent } from './guests.component';
 
 describe('GuestsComponent', () => {
   let component: GuestsComponent;
   let fixture: ComponentFixture<GuestsComponent>;
+  let store: MockStore;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ GuestsComponent ]
-    })
-    .compileComponents();
+  configureTestSuite(() => {
+    TestBed.configureTestingModule({
+      declarations: [ GuestsComponent ],
+      providers: [
+        provideMockStore({})
+      ],
+      schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
+    });
+    store = TestBed.inject(MockStore);
   });
 
   beforeEach(() => {
