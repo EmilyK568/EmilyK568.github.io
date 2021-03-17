@@ -5,7 +5,11 @@
                mode="side"
                class="side-nav">
     <mat-nav-list *ngFor="let navItem of navItems">
-      <mat-list-item (click)="navigate(navItem.value)">{{ navItem.key }}</mat-list-item>
+      <mat-list-item (click)="navigate(navItem.value)">{{ navItem.key }}
+        <span *ngIf="navItem.comingSoon">
+          <mat-icon matTooltip="Coming Soon!">update</mat-icon>
+        </span>
+      </mat-list-item>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content class="main-content">

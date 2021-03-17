@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { GenericKeyValue } from './shared/interfaces/generic-key-value.interface';
+import { NavItem } from './shared/interfaces/nav-item.interface';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +9,7 @@ import { GenericKeyValue } from './shared/interfaces/generic-key-value.interface
 })
 export class AppComponent {
   title = 'EmilyK568';
-  navItems: Array<GenericKeyValue> = [
+  navItems: Array<NavItem> = [
     {
       key: 'Home',
       value: '/home'
@@ -21,6 +21,11 @@ export class AppComponent {
     {
       key: 'Add a Guest',
       value: '/add-guest'
+    },
+    {
+      key: 'Reception Meal',
+      value: '',
+      comingSoon: true
     }
   ]
 

@@ -1,9 +1,10 @@
 <mat-card>
+  <h2>List of Guests</h2>
   <table matSort (matSortChange)="sortData($event)">
     <tr>
       <th mat-sort-header="name">Name</th>
-      <th mat-sort-header="calories">Age (in years)</th>
-      <th mat-sort-header="fat">Weight (in lbs)</th>
+      <th mat-sort-header="age">Age (in years)</th>
+      <th mat-sort-header="weight">Weight (in lbs)</th>
       <th class="hidden">
         <button mat-button
               color="warn">

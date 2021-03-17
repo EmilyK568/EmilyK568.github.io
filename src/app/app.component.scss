@@ -3,13 +3,18 @@
   top: 64px;
   left: 0;
   right: 0;
-  height: calc(100% - 50px);
+  height: calc(100% - 64px);
 
   .side-nav {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 225px;
+
+    span {
+      margin-left: 3rem;
+      color: #69f0ae;
+    }
   }
 
   .main-content {

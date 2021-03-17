@@ -66,7 +66,7 @@ export class AgeRangeComponent implements OnInit {
       .attr('x', width / 2 + margin)
       .attr('y', height + margin * 1.7)
       .attr('text-anchor', 'middle')
-      .text('Name')
+      .text('Name of Guest')
       .attr('fill', '#69f0ae')
 
     svg.append('text')
@@ -74,7 +74,7 @@ export class AgeRangeComponent implements OnInit {
       .attr('y', 40)
       .attr('text-anchor', 'middle')
       .text('Age of Guests')
-      .attr('fill', '#7b1fa2')
+      .attr('fill', 'white')
       .attr('font-size', '24px')
   }
 

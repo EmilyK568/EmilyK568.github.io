@@ -12,6 +12,10 @@ mat-card {
         flex: 1;
       }
 
+      th {
+        color: #69f0ae;
+      }
+
       .hidden {
         opacity: 0;
         pointer-events: none;
