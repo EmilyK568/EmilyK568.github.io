@@ -67,4 +67,30 @@ describe('AddGuestComponent', () => {
       duration: 5000
     });
   });
+
+  it('should handle submit when invalid', () => {
+    const guestListSpy = spyOn(component['guestList'], 'markAllAsTouched').and.returnValue(true);
+    const getRawValueSpy = spyOn(component['guestList'], 'getRawValue').and.returnValue({ test: 'testing' });
+    const storeSpy = spyOn(component['store'], 'dispatch').and.returnValue(true);
+    const snackBarSpy = spyOn(component['snackBar'], 'open').and.callThrough();
+    component.guestList.setErrors({required: true});
+    component.submit();
+    expect(guestListSpy).toHaveBeenCalledTimes(1);
+    expect(getRawValueSpy).toHaveBeenCalledTimes(1);
+    expect(storeSpy).toHaveBeenCalledTimes(0);
+    expect(snackBarSpy).toHaveBeenCalledTimes(1);
+    expect(snackBarSpy).toHaveBeenCalledWith('Please enter the missing information', '', {
+      duration: 5000
+    });
+  });
+
+  it('should reset the page', () => {
+    const guestsClearSpy = spyOn(component['guests'], 'clear').and.returnValue(true);
+    const guestsValueValiditySpy = spyOn(component['guests'], 'updateValueAndValidity').and.returnValue(true);
+    const addGuestSpy = spyOn(component, 'addGuest').and.returnValue(true);
+    component.resetPage();
+    expect(guestsClearSpy).toHaveBeenCalledTimes(1);
+    expect(guestsValueValiditySpy).toHaveBeenCalledTimes(1);
+    expect(addGuestSpy).toHaveBeenCalledTimes(1);
+  });
 });
