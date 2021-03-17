@@ -35,6 +35,7 @@ export class GuestComponent implements OnInit {
 
   removeFriend(index: number) {
     this.friends.splice(index, 1);
+    this.guestForm.get('friends').setValue(this.friends);
   }
 
   addFriend(event: MatChipInputEvent) {
