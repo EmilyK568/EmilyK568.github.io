@@ -32,14 +32,15 @@ describe('GuestsComponent', () => {
   });
 
   it('should remove a guest', () => {
-    component.sortedData = [{
+    const guest = {
       name: 'Bill',
       age: 23,
       weight: 103,
       friends: []
-    }];
+    }
+    component.sortedData = [guest];
     const storeSpy = spyOn(component['store'], 'dispatch').and.returnValue(true);
-    component.removeGuest(0);
+    component.removeGuest(guest);
     expect(storeSpy).toHaveBeenCalledTimes(1);
     expect(component.sortedData).toEqual([]);
   });
