@@ -14,8 +14,6 @@ export class GuestComponent implements OnInit {
   @Output() remove = new EventEmitter();
   friends: Array<string> = [];
 
-  constructor() { }
-
   ngOnInit(): void {
     this.setFormControls();
   }

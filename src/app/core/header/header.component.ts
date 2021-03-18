@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -6,13 +6,10 @@ import { Router } from '@angular/router';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
   @Output() toggleSideNav = new EventEmitter<boolean>();
 
   constructor(private readonly router: Router) { }
-
-  ngOnInit(): void {
-  }
 
   emitToggleSideNav() {
     this.toggleSideNav.emit();

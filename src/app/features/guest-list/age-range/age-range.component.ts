@@ -12,8 +12,6 @@ export class AgeRangeComponent implements OnChanges {
   @ViewChild('chart', { static: true })
   chartContainer!: ElementRef;
 
-  constructor() { }
-
   ngOnChanges() {
     this.createChart();
   }
