@@ -42,8 +42,10 @@ export class GuestComponent implements OnInit {
     const value = event.value;
     const input = event.input;
 
-    this.friends.push(value.trim());
-    this.guestForm.get('friends').setValue(this.friends);
+    if (value) {
+      this.friends.push(value.trim());
+      this.guestForm.get('friends').setValue(this.friends);
+    }
     if (input) {
       input.value = '';
     }
