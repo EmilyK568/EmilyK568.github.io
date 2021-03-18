@@ -8,6 +8,9 @@ The project includes:
 - [Jest](https://jestjs.io/docs/getting-started)
 
 This project is the proof of concept for a wedding planner organizer. It uses Angular Material for the component library and theme for the panels and inputs of the reactive forms used in the `Add a Guest` feature. After submitting the form, the data is then saved to the store for state management. Navigating to the `Guest List` feature, the data is pulled from the store to populate both the guest list table and the D3 bar chart.
+
+> This project is on GitHub Pages. Find it at the following link:
+https://emilyk568.github.io
 ___
 ___
 ## Getting Started
