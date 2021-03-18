@@ -13,14 +13,14 @@
       </th>
     </tr>
     <ng-container *ngIf="sortedData.length > 0; else noData">
-      <tr *ngFor="let guest of sortedData; let i=index">
+      <tr *ngFor="let guest of sortedData">
         <td>{{ guest.name }}</td>
         <td>{{ guest.age }}</td>
         <td>{{ guest.weight }}</td>
         <td>
           <button mat-button
                   color="warn"
-                  (click)="removeGuest(i)">
+                  (click)="removeGuest(guest)">
             <mat-icon>remove</mat-icon>Remove Guest from List
           </button>
         </td>

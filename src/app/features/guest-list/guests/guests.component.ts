@@ -19,8 +19,8 @@ export class GuestsComponent implements OnInit {
     this.sortedData = this.guests ? [...this.guests] : [];
   }
 
-  removeGuest(index: number) {
-    this.sortedData.splice(index, 1);
+  removeGuest(person: Guest) {
+    this.sortedData = this.sortedData.filter(guest => guest !== person);
     this.store.dispatch(removeGuest({ guests: this.sortedData}));
   }
 
