@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, ElementRef, Input, OnChanges, ViewChild } from '@angular/core';
 import { Guest } from 'src/app/shared/interfaces/guest.interface';
 import * as d3 from 'd3';
 
@@ -7,18 +7,28 @@ import * as d3 from 'd3';
   templateUrl: './age-range.component.html',
   styleUrls: ['./age-range.component.scss']
 })
-export class AgeRangeComponent implements OnInit {
+export class AgeRangeComponent implements OnChanges {
   @Input() guests: Array<Guest> | null = [];
+  @ViewChild('chart', { static: true })
+  chartContainer!: ElementRef;
 
   constructor() { }
-  
-  ngOnInit() {
+
+  ngOnChanges() {
     this.createChart();
   }
 
   private createChart(): void {
+    d3.select('svg').remove();
+
     const data = this.guests ? this.guests : [];
-    const svg = d3.select('svg');
+
+    const element = this.chartContainer.nativeElement;
+    d3.select(element).append('svg');
+
+    const svg = d3.select('svg')
+    .attr('width', element.offsetWidth)
+    .attr('height', element.offsetHeight);
     const margin = 80;
     const width = 1200 - 2 * margin;
     const height = 500 - 2 * margin;
